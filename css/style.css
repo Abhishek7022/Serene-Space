@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Oswald:wght@700&family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+:root {
+    --overlay-color: #ff2424; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.showcase {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(0, 0, 0);
+    color: #fff;
+    z-index: 2;
+    transition: 0.7s ease;
+}
+
+.showcase.active {
+    right: 250px;
+}
+
+.showcase header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1.3em;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.logo {
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.toggle {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    filter: invert(1);
+    background: url(../images/menu.png);
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: center;
+    cursor: pointer;
+}
+
+.toggle.active {
+    background: url(../images/close.png);
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: center;
+    cursor: pointer;
+}
+
+.showcase video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-color); 
+    mix-blend-mode: overlay;
+}
+
+.text {
+    margin-top: 100px;
+    position: relative;
+    z-index: 10;
+}
+
+.text h2 {
+    font-size: 3em;
+    font-weight: 600;
+    margin-top: 40px;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+
+.text h3 {
+    font-size: 2.4em;
+    font-weight: 500;
+    margin-top: 5px;
+    line-height: 1em;
+    text-transform: uppercase;
+}
+
+.text p{
+    font-size: 1.2em;
+    font-weight: 300;
+    word-spacing: 4px;
+    margin-top: 22px;
+    max-width: 700px;
+}
+
+.text a{
+    display: inline-block;
+    font-size: 1.3em;
+    font-weight: 400;
+    background: #fff;
+    border-radius: 15px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #111;
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.2s ease;
+}
+
+.text a:hover{
+    /* letter-spacing: 5px; */
+    background: gray;
+    /* font-weight: 500; */
+}
+
+.social{
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social li{
+    list-style: none;
+}
+
+.social li a {
+    display: inline-block;
+    background: none;
+    filter: invert(1);
+    margin-left: -13px;
+    transform: scale(0.5);
+}
+
+.social li a:hover{
+    transform: scale(0.85);
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/solar.jpg);
+    background-repeat: no-repeat;
+    background-color: rgb(240, 240, 240);
+    object-fit: cover;
+}
+
+.menu ul {
+    position: absolute;
+    list-style: none;
+}
+
+.menu ul li {
+    margin: 15px;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    color: #111;
+    font-size: 30px;
+}
+
+.menu ul li a:hover {
+    color: var(--overlay-color);
+    letter-spacing: 2.5px;
+}
+
+@media(max-width: 798px) {
+    .showcase, 
+    .showcase header{
+        padding: 40px;
+    }
+
+    .text h2 {
+        font-size: 3em;
+    }
+
+    .text h3 {
+        font-size: 2em;
+    }
+}

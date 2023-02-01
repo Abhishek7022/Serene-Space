@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>Serene Space : Our Solar System</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="showcase">
+        <header>
+          <h2 class="logo">cosmos : a sky full of ghosts</h2>
+          <div class="toggle"></div>
+        </header>
+
+        <video src="videos/solar_system.mp4" muted autoplay loop></video>
+
+        <div class="overlay"></div>
+
+        <div class="text">
+          <h2>solar system</h2>
+          <h3>The heart of the Milky way</h3>
+          <p>
+            The Solar System is the gravitationally bound system of the Sun and
+            the objects that orbit it. Of the bodies that orbit the Sun
+            directly, the largest are the four gas and ice giants and the four
+            terrestrial planets, followed by an unknown number of dwarf planets
+            and innumerable small Solar System bodies.
+          </p>
+          <a href="https://en.wikipedia.org/wiki/Solar_System">Read More</a>
+
+          <ul class="social">
+            <li>
+              <a href="#"><img src="images/fb.png" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="images/insta.png" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="images/twttr.png" /></a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="menu">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="pages/sun.html">Sun</a></li>
+          <li><a href="pages/mercury.html">Mercury</a></li>
+          <li><a href="pages/venus.html">Venus</a></li>
+          <li><a href="pages/earth.html">Earth</a></li>
+          <li><a href="pages/mars.html">Mars</a></li>
+          <li><a href="pages/jupiter.html">Jupiter</a></li>
+          <li><a href="pages/saturn.html">Saturn</a></li>
+          <li><a href="pages/uranus.html">Uranus</a></li>
+          <li><a href="pages/neptune.html">Neptune</a></li>
+        </ul>
+      </div>
+
+      <section class="next">
+        <h1>A Brief of about the Solar System</h1>
+      </section>
+    </div>
+    <script>
+      const menuToggle = document.querySelector(".toggle");
+      const showcase = document.querySelector(".showcase");
+
+      menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("active");
+        showcase.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
