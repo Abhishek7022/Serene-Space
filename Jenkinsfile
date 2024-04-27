@@ -1,6 +1,6 @@
 pipleine{
   agent any
-  
+
   stages{
     stage('Build') {
       steps{
