@@ -5,9 +5,7 @@ pipleine{
     stage('Build') {
       steps{
         echo 'Starting the Build stage...'
-        sh '''
         echo "It feels great and this is my first pipleine"
-        '''
       }
     }
 
