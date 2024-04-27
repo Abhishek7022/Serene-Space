@@ -1,7 +1,16 @@
-pipleine{
+pipeline{
   agent any
 
-  stages{
+  stages {
+    stage('Init') {
+      steps{
+        echo 'Starting the Init stage...'
+        sh '''
+        echo "Initilization complete..."
+        '''
+      }
+    }
+
     stage('Build') {
       steps{
         echo 'Starting the Build stage...'
@@ -11,7 +20,10 @@ pipleine{
 
     stage('Test') {
       steps{
-        echo 'Begin Testing stage...'
+        script {
+          echo 'Begin Testing stage...'
+          echo "OS: ${env.OS}"
+        }
       }
     }
 
