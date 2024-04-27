@@ -1,20 +1,25 @@
 pipleine{
   agent any
+  
   stages{
-    stage('Build'){
+    stage('Build') {
       steps{
-        echo "Starting the Build stage..."
+        echo 'Starting the Build stage...'
         sh '''
         echo "It feels great and this is my first pipleine"
         '''
       }
-    stage('Test'){
+    }
+
+    stage('Test') {
       steps{
-        echo "Begin Testing stage..."
+        echo 'Begin Testing stage...'
       }
-    stage('Deploy'){
+    }
+
+    stage('Deploy') {
       steps{
-        echo "Initiate the Deployment stage"
+        echo 'Initiate the Deployment stage...'
       }
     }
   }
