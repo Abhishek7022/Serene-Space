@@ -24,7 +24,10 @@ pipeline{
       steps{
         script {
           echo 'Begin Testing stage...'
-          echo "OS: ${env.OS}"
+          cat /etc/issue
+          free -m
+          df -h
+          top
         }
       }
     }
