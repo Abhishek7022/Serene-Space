@@ -1,7 +1,5 @@
 pipeline{
-  agent {
-    docker { image 'node:16-alpine'}
-  }
+  agent docker-alpine
 
   stages {
     stage('Init') {
@@ -24,10 +22,10 @@ pipeline{
       steps{
         script {
           echo 'Begin Testing stage...'
-          cat /etc/issue
-          free -m
-          df -h
-          top
+          sh 'cat /etc/issue'
+          sh 'free -m'
+          sh 'df -h'
+          sh 'top'
         }
       }
     }
