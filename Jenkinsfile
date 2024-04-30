@@ -1,5 +1,7 @@
 pipeline{
-  agent docker-alpine
+  agent {
+      label 'docker-alpine'
+  }
 
   stages {
     stage('Init') {
