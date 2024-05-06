@@ -1,8 +1,6 @@
 pipeline{
   agent {
-    node {
-      label 'docker-agent-alpine'
-    }
+    label 'docker-agent-alpine'
   }
 
   stages {
@@ -29,7 +27,6 @@ pipeline{
           sh 'cat /etc/issue'
           sh 'free -m'
           sh 'df -h'
-          sh 'top'
         }
       }
     }
@@ -37,6 +34,7 @@ pipeline{
     stage('Deploy') {
       steps{
         echo 'Initiate the Deployment stage...'
+        echo 'Deployment complete...'
       }
     }
   }
