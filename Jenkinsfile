@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'docker-agent-alpine'
+        label 'worker'
     }
 
     stages {
