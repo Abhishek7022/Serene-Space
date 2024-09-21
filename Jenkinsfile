@@ -1,63 +1,18 @@
-pipeline {
-    agent {
-        label 'worker'
-    }
-
-    stages {
-        stage('Init') {
-            steps {
-                script {
-                    echo 'Starting the Init stage...'
-                    sh '''
-                    echo "Initialization complete..."
-                    '''
-                }
-            }
-        }
-
-        stage('Build') {
-            steps {
-                echo 'Starting the Build stage...'
-                echo "It feels great and this is my first pipeline"
-            }
-        }
-
-        stage('Test') {
-            steps {
-                script {
-                    echo 'Begin Testing stage...'
-                    sh 'cat /etc/issue'
-                    sh 'free -m'
-                    sh 'df -h'
-                }
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                script {
-                    echo 'Initiate the Deployment stage...'
-                    echo 'Deployment complete...'
-                }
-            }
-        }
-    }
-}
-
+// Jenkins Pipeline for Serene-Space Website
 pipeline {
     agent any
 
     environment {
-        DOCKER_CREDENTIALS_ID = 'dockerhub-credentials-id'
-        DOCKER_IMAGE = 'your-dockerhub-username/your-image-name'
-        DEPLOYMENT_REPO_URL = 'https://github.com/your-username/deployment-repo.git'
-        DEPLOYMENT_REPO_CREDENTIALS_ID = 'github-credentials-id'
-        DEPLOYMENT_BRANCH = 'main'
+        DOCKER_CREDENTIALS_ID = 'dockins'
+        DOCKER_IMAGE = 'abhishek7022/seabiscuit'
+        DEPLOYMENT_REPO_URL = 'https://github.com/Abhishek7022/Argo-CD-k8s.git'
+        DEPLOYMENT_REPO_CREDENTIALS_ID = 'gitkins'
+        DEPLOYMENT_BRANCH = 'master'
         IMAGE_TAG = "v${env.BUILD_NUMBER}"
     }
 
     stages {
-        stage('Checkout Source Repo') {
+        stage('Checkout Source Repository') {
             steps {
                 checkout scm
             }
@@ -95,9 +50,15 @@ pipeline {
                     ])
                     
                     // Update the deployment.yaml file with the new image tag
+                    def deployFile1 = "namespaces/serene/ss-dev/deployment.yaml"
+                    def deployFile2 = "namespaces/serene/ss-prod/deployment.yaml"
+
                     sh """
-                    sed -i 's|image:.*|image: ${DOCKER_IMAGE}:${IMAGE_TAG}|' deployment.yaml
-                    git add deployment.yaml
+                    sed -i 's|image:.*|image: ${DOCKER_IMAGE}:${IMAGE_TAG}|' ${deployFile1}
+                    sed -i 's|image:.*|image: ${DOCKER_IMAGE}:${IMAGE_TAG}|' ${deployFile2}
+
+                    git add ${deployFile1}
+                    git add ${deployFile2}
                     git commit -m 'Update image version to ${IMAGE_TAG}'
                     git push origin ${DEPLOYMENT_BRANCH}
                     """
